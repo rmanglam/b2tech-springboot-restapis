@@ -21,7 +21,7 @@ public class EmployeeServiceiImpl implements EmployeeService {
 	
 	@Override
 	public List<Employee> getEmployee(int pageNumber, int pageSize) {
-		Pageable pages = PageRequest.of(pageNumber, pageSize, Direction.DESC,"id"); // at the place of id we can write name, location etc it will do sorting
+		Pageable pages = PageRequest.of(pageNumber, pageSize, Direction.ASC,"id"); // at the place of id we can write name, location etc it will do sorting
 		return eRepository.findAll(pages).getContent();
 	}
 
@@ -76,5 +76,10 @@ public class EmployeeServiceiImpl implements EmployeeService {
 		// TODO Auto-generated method stub
 		return eRepository.getEmployeesByNameAndLocation(name, location);
 	}
+
+	@Override
+	public Integer deleteByEmployeeName(String name) {
+		// TODO Auto-generated method stub
+		return eRepository.deleteEmployeeByName(name);	}
 
 }

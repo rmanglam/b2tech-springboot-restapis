@@ -20,6 +20,8 @@ public interface EmployeeService {
 
 
 	List<Employee> getEmployeesByNameOrLocation(String name, String location);
+	
+	Integer deleteByEmployeeName(String name);
 }
 
 

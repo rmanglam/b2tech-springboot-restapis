@@ -100,4 +100,11 @@ public class EmployeeController {
 	}
 	
 	
+	
+	@DeleteMapping("/employees/delete/{name}")
+	public ResponseEntity<String> deleteEmployeeByName(@PathVariable String name){
+		
+		return new ResponseEntity<String>(eService.deleteByEmployeeName(name)+"No. of records delete", HttpStatus.OK);
+	}
+	
 }
